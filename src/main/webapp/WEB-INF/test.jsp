@@ -33,7 +33,7 @@
 <Body>
 
 <div class="container">
-    <h2>Добавление нового клиента</h2>
+    <h2>Гостевая книга</h2>
 
     <form class="form-inline" method="POST" action="/simple">
 
