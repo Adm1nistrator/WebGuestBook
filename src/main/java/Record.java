@@ -1,6 +1,4 @@
-import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.util.List;
 
 /**
  * Created by anykey on 08.06.16.
@@ -8,12 +6,12 @@ import java.util.List;
 public class Record {
     private long id;
     private String msg;
-    private Timestamp time;
+    private Timestamp postTime;
 
-    public Record(int id, String msg, Timestamp date) {
+    public Record(int id, String msg, Timestamp postTime) {
         this.id = id;
         this.msg = msg;
-        this.time = date;
+        this.postTime = postTime;
     }
 
     public long getId() {
@@ -24,8 +22,8 @@ public class Record {
         return msg;
     }
 
-    public Timestamp getTimestamp() {
-        return time;
+    public Timestamp getPostTime() {
+        return postTime;
     }
 
     public void setId(long id) {
@@ -36,15 +34,15 @@ public class Record {
         this.msg = msg;
     }
 
-    public void setTimestamp(Timestamp t) {
-        this.time = t;
+    public void setTimestamp(Timestamp postTime) {
+        this.postTime = postTime;
     }
 
     @Override
     public String toString() {
 
         String out = "";
-            out = "№ "+ getId() + " " + getMsg() + " Добавленно:  " + getTimestamp();
+            out = "№ "+ getId() + " " + getMsg() + " Добавленно:  " + getPostTime();
 
         return out;
     }

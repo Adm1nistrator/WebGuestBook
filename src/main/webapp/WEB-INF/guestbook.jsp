@@ -48,7 +48,7 @@
                 <input type="text" name="textfield" class="form-control" id="first_name" placeholder="Введите текст">
 --%>
                 <div class="input-field col s12">
-                    <textarea id="textarea1" name="textfield" class="materialize-textarea"></textarea>
+                    <textarea id="textarea1" name="textfield" class="materialize-textarea" length="120"></textarea>
                     <label for="textarea1">Оставьте свой комментарий</label>
                 </div>
             </div>
@@ -78,20 +78,18 @@
 
 
 <%--Using JSTL forEach and out to loop a list and display items in table--%>
-<%--
 <table>
     <tbody>
     <tr><th>ID</th><th>Name</th><th>Date</th></tr>
-    <c:forEach items="${GuestBook.List}" var="Record">
-        <tr><td><c:out value="${Record.getId}"></c:out></td>
-            <td><c:out value="${Record.getMsg}"></c:out></td>
-            <td><c:out value="${Record.getDate}"></c:out></td></tr>
+    <c:forEach items="${requestScope.ListRecords}" var="record">
+        <tr><td><c:out value="${record.id}"></c:out></td>
+            <td><c:out value="${record.msg}"></c:out></td>
+            <td><c:out value="${record.postTime}"></c:out></td></tr>
     </c:forEach>
     </tbody>
 </table>
 
 
---%>
 
 
 </html>

@@ -4,6 +4,8 @@ import java.sql.DriverManager;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -22,10 +24,11 @@ public class GuestBook implements GuestBookController {
     }
 
     public void addRecord(String message) throws SQLException {
-        Timestamp t = new Timestamp(System.currentTimeMillis());
+        Timestamp date = new Timestamp(System.currentTimeMillis());
         // SimpleDateFormat simpleDateFormat = new SimpleDateFormat("YYYY.MM.dd hh:mm:ss");
         //  Date date = new Date(System.currentTimeMillis());
-        insert.setTimestamp(1, t);
+
+        insert.setTimestamp(1, date);
         // insert.setDate(1, date);
         insert.setString(2, message);
         insert.execute();
@@ -43,6 +46,7 @@ public class GuestBook implements GuestBookController {
                 list.add(r);
             }
         }
+        Collections.reverse(list);
         return list;
     }
 
