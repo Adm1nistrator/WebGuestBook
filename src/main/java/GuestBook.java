@@ -1,6 +1,8 @@
 import javax.sql.DataSource;
 import java.io.IOException;
+import java.sql.DriverManager;
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,13 +16,14 @@ public class GuestBook implements GuestBookController {
     PreparedStatement selectAll;
 
     public GuestBook(DataSource ds) throws SQLException {
-        Connection c=ds.getConnection();
+        Connection c = ds.getConnection();
         insert = c.prepareStatement("insert into posts (postdate, message) values(?, ?)");
         selectAll = c.prepareStatement("select * from posts");
     }
 
     public void addRecord(String message) throws SQLException {
         Timestamp t = new Timestamp(System.currentTimeMillis());
+        // SimpleDateFormat simpleDateFormat = new SimpleDateFormat("YYYY.MM.dd hh:mm:ss");
         //  Date date = new Date(System.currentTimeMillis());
         insert.setTimestamp(1, t);
         // insert.setDate(1, date);
@@ -30,8 +33,8 @@ public class GuestBook implements GuestBookController {
 
     public List<Record> getRecords() throws SQLException {
         List<Record> list = new ArrayList<>();
-        try(ResultSet rs = selectAll.executeQuery()){
-            while(rs.next()){
+        try (ResultSet rs = selectAll.executeQuery()) {
+            while (rs.next()) {
                 Record r = new Record(
                         rs.getInt("id"),
                         rs.getString("message"),
@@ -42,6 +45,7 @@ public class GuestBook implements GuestBookController {
         }
         return list;
     }
+
 
     public void close() throws IOException {
         try {

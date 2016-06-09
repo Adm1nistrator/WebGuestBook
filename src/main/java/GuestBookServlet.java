@@ -19,7 +19,7 @@ public class GuestBookServlet extends HttpServlet {
     GuestBook guestBook;
 
 
-    @Resource(name = "jdbc_testDS")
+    @Resource(name = "jdbc/GuestBook")
     private DataSource ds;
 
     @PostConstruct
@@ -47,7 +47,7 @@ public class GuestBookServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String message = "";
+        String message;
         message = req.getParameter("textfield");
         try {
             guestBook.addRecord(message);

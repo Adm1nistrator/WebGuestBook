@@ -6,7 +6,7 @@
     <display-name>WebGuestBook</display-name>
 
     <resource-ref>
-        <res-ref-name>jdbc/testDS</res-ref-name>
+        <res-ref-name>jdbc/GuestBook</res-ref-name>
         <res-type>javax.sql.DataSource</res-type>
         <res-auth>Container</res-auth>
 

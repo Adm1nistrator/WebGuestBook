@@ -1,4 +1,6 @@
+import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.List;
 
 /**
  * Created by anykey on 08.06.16.
@@ -36,5 +38,14 @@ public class Record {
 
     public void setTimestamp(Timestamp t) {
         this.time = t;
+    }
+
+    @Override
+    public String toString() {
+
+        String out = "";
+            out = "№ "+ getId() + " " + getMsg() + " Добавленно:  " + getTimestamp();
+
+        return out;
     }
 }
