@@ -14,7 +14,7 @@ import java.util.List;
  * Created by Adm1n on 08.06.2016.
  */
 
-@WebServlet(name = "SimpleServlet", urlPatterns = {"/simple"})
+@WebServlet(name = "SimpleServlet", urlPatterns = {"/guestbook"})
 public class GuestBookServlet extends HttpServlet {
     GuestBook guestBook;
 
@@ -43,7 +43,7 @@ public class GuestBookServlet extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        req.getRequestDispatcher("WEB-INF/test.jsp").forward(req, resp);
+        req.getRequestDispatcher("WEB-INF/guestbook.jsp").forward(req, resp);
     }
 
     @Override

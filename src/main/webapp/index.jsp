@@ -7,7 +7,7 @@
 
 <h2>GuestBookServlet</h2>
 
-<p><a href = "/simple">Гостевая книга</a></p>
+<p><a href = "/guestbook">Гостевая книга</a></p>
 
 </body>
 </html>

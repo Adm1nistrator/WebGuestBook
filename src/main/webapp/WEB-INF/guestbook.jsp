@@ -1,7 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.util.List" %>
-<%--<%@page import="GuestBook" %>
-<%@page import="Record" %>--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 
 <%--<jsp:useBean id="GuestBook" class="GuestBook" scope="request"/>
@@ -42,19 +40,24 @@
 <div class="container">
     <h2>Гостевая книга</h2>
 
-    <form class="form-inline" method="POST" action="/simple">
+    <form class="form-inline" method="POST" action="/guestbook">
 
         <div class="row">
             <div class="input-field col s6">
-                <label for="first_name">Оставьте свой комментарий</label>
+                <%--<label for="first_name">Оставьте свой комментарий</label>
                 <input type="text" name="textfield" class="form-control" id="first_name" placeholder="Введите текст">
+--%>
+                <div class="input-field col s12">
+                    <textarea id="textarea1" name="textfield" class="materialize-textarea"></textarea>
+                    <label for="textarea1">Оставьте свой комментарий</label>
+                </div>
             </div>
-
-
-        <button class="btn waves-effect waves-light" type="submit" name="action">Отправить
-            <i class="material-icons right">send</i>
-        </button>
+            <button class="btn waves-effect waves-light" type="submit" name="action">Отправить
+                <i class="material-icons right">send</i>
+            </button>
         </div>
+
+
     </form>
 
     <hr>
@@ -62,7 +65,7 @@
         <%
             List listMessage = (List) request.getAttribute("ListRecords");
 
-            for (int i =listMessage.size()-1; i >=0; i--) {
+            for (int i = listMessage.size() - 1; i >= 0; i--) {
                 out.println("<li>" + listMessage.get(i) + "</li>");
 
             }
@@ -74,7 +77,7 @@
 </body>
 
 
- <%--Using JSTL forEach and out to loop a list and display items in table--%>
+<%--Using JSTL forEach and out to loop a list and display items in table--%>
 <%--
 <table>
     <tbody>
