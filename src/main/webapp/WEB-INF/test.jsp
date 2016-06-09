@@ -1,17 +1,24 @@
-<%@ page import="java.util.List" %><%--
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.util.List" %>
+<%--<%@page import="GuestBook" %>
+<%@page import="Record" %>--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+
+<%--<jsp:useBean id="GuestBook" class="GuestBook" scope="request"/>
+<jsp:useBean id="Record" class="Record" scope="request"/>--%>
+<%--
   Created by IntelliJ IDEA.
   User: Adm1n
   Date: 08.06.2016
   Time: 23:12
   To change this template use File | Settings | File Templates.
 --%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
-<%--<jsp:useBean id="record" class="Record" scope="request"/>--%>
-<!DOCTYPE HTML>
-<html>
-<head>
 
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Гостевая книга</title>
 
@@ -51,40 +58,37 @@
     </form>
 
     <hr>
-    <ol>
+    <ul>
         <%
             List listMessage = (List) request.getAttribute("ListRecords");
 
-            for (int i =0; i <listMessage.size(); i++) {
+            for (int i =listMessage.size()-1; i >=0; i--) {
                 out.println("<li>" + listMessage.get(i) + "</li>");
 
             }
         %>
-    </ol>
+    </ul>
     <hr>
 
 </div>
 </body>
 
-<%--<form method="post" action="/simple">
-    <p><b>Введите текст сообщения</b></p>
-    <p><input name="textfield" type="text" placeholder="Введите текст" size=60 autofocus/></p>
-    <p><input type="submit"></p>
-</form--%>>
 
-<%-- Using JSTL forEach and out to loop a list and display items in table --%>
-<%--<table>
+ <%--Using JSTL forEach and out to loop a list and display items in table--%>
+<%--
+<table>
     <tbody>
     <tr><th>ID</th><th>Name</th><th>Date</th></tr>
-    <c:forEach items="${requestScope}" var="Record">
-        <tr><td><c:out value="${Record.id}"></c:out></td>
-            <td><c:out value="${Record.msg}"></c:out></td>
-            <td><c:out value="${Record.date}"></c:out></td></tr>
+    <c:forEach items="${GuestBook.List}" var="Record">
+        <tr><td><c:out value="${Record.getId}"></c:out></td>
+            <td><c:out value="${Record.getMsg}"></c:out></td>
+            <td><c:out value="${Record.getDate}"></c:out></td></tr>
     </c:forEach>
     </tbody>
-</table>--%>
+</table>
 
 
+--%>
 
 
 </html>

@@ -38,6 +38,7 @@ public class GuestBookServlet extends HttpServlet {
 
             if (list==null)
             {return;}
+            req.setCharacterEncoding("UTF-8");
             req.setAttribute("ListRecords", list);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -48,6 +49,7 @@ public class GuestBookServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String message;
+        req.setCharacterEncoding("UTF-8");
         message = req.getParameter("textfield");
         try {
             guestBook.addRecord(message);

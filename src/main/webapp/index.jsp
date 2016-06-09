@@ -1,10 +1,12 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<jsp:forward page="/simple" />
 <html>
 <head>
     <meta charset="utf-8">
 </head>
 <body>
 
-<h2>GuestBookServlet World!</h2>
+<h2>GuestBookServlet</h2>
 
 <p><a href = "/simple">Гостевая книга</a></p>
 
