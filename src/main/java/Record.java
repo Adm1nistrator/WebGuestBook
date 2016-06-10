@@ -42,7 +42,7 @@ public class Record {
     public String toString() {
 
         String out = "";
-            out = "№ "+ getId() + " " + getMsg() + " Добавленно:  " + getPostTime();
+        out = "№ " + getId() + " " + getMsg() + " Добавленно:  " + getPostTime();
 
         return out;
     }

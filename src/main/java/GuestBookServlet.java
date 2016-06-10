@@ -23,7 +23,7 @@ public class GuestBookServlet extends HttpServlet {
     private DataSource ds;
 
     @PostConstruct
-    public void init(){
+    public void init() {
         try {
             guestBook = new GuestBook(ds);
         } catch (SQLException e) {
@@ -32,12 +32,13 @@ public class GuestBookServlet extends HttpServlet {
     }
 
     @Override
-    protected void doGet (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
             List<Record> list = guestBook.getRecords();
 
-            if (list==null)
-            {return;}
+            if (list == null) {
+                return;
+            }
             req.setCharacterEncoding("UTF-8");
             req.setAttribute("ListRecords", list);
         } catch (SQLException e) {

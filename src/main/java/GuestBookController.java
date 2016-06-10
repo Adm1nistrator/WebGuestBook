@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by anykey on 06.06.16.
  */
-public interface GuestBookController extends AutoCloseable{
+public interface GuestBookController extends AutoCloseable {
 
     void addRecord(String message) throws SQLException;
 
