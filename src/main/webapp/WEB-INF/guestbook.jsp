@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <%--
   Created by IntelliJ IDEA.
@@ -66,7 +67,8 @@
             <tr>
                 <td><c:out value="${record.id}"></c:out></td>
                 <td><c:out value="${record.msg}"></c:out></td>
-                <td><c:out value="${record.postTime}"></c:out></td>
+             <%--   Форматируем дату написания сообщения в формате dd-MM-yyyy HH:mm--%>
+                <td><fmt:formatDate value="${record.postTime}" pattern="dd-MM-yyyy HH:mm" /></td>
             </tr>
         </c:forEach>
         </tbody>
